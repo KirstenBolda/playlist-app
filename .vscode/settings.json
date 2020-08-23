@@ -1,0 +1,8 @@
+{
+    "editor.tabSize": 2,
+    "editor.fontSize": 14,
+    "workbench.colorTheme": "stayfresh-blue",
+    "workbench.colorCustomizations": {
+    "sideBar.background": "#22253f"
+    }
+}
