@@ -10,11 +10,13 @@
 
 #### [x] It should have a place to display the artist associated with each song
 
-#### [x] It should have a way to add new songs
+#### [x] It should have a way to add new songs and artists
 
 #### [ ] It should have a way to change a song
 
-#### [ ] It should have a way to delete a song
+#### [ ] It should have a way to change an artist
+
+#### [ ] It should have a way to delete a song and artist together
 
 ![dots separator](./img/dots-separator.svg)
 
@@ -116,3 +118,52 @@ console.log(songsAndArtists);
 ![dots separator](./img/dots-separator.svg)
 #### It should have a way to change a song
 
+- first access the song that will be changed
+  - use brackets to access the index in the array of songs or artists
+  - arrays are zero-indexed: start counting at zero
+
+```
+songs[2];
+//returns: "Tightrope"
+```
+
+```
+artists[3];
+// returns: "Lana Del Rey" 
+```
+
+```
+songsAndArtists[0];
+// returns:  ["The Trip", "Still Corners"]
+```
+- use the `=` assignment operator to update to the new value
+
+```
+songs[2] = 'Infinite Circle';
+// returns: "Infinite Circle"
+
+songs
+// returns: ["The Trip", "Carry On", "Infinite Circle", "Blue Jeans", "Trust the Sun"]
+```
+
+```
+artists[2] = 'James Blackshaw';
+// returns: "James Blackshaw"
+
+artists
+// returns: ["Still Corners", "The Crystal Method", "James Blackshaw", "Lana Del Rey", "Elbow"]
+```
+
+```
+songsAndArtists[0] = ['Tightrope', 'Above and Beyond'];
+// returns: (2) ["Tightrope", "Above and Beyond"]
+
+songsAndArtists
+// returns: (5) [Array(2), Array(2), Array(2), Array(2), Array(2)]
+  0: (2) ["Tightrope", "Above and Beyond"]
+  1: (2) ["Carry On", "The Crystal Method"]
+  2: (2) ["Tightrope", "Above and Beyond"]
+  3: (2) ["Blue Jeans", "Lana Del Rey"]
+  4: (2) ["Trust the Sun", "Elbow"]
+  ```
+![dots separator](./img/dots-separator.svg)
