@@ -216,7 +216,7 @@ songsAndArtists
 // remove first artis:
 artists.splice(0,1);
 // returns:
-""Still Corners""
+"Still Corners"
 console.log)(artists);
 // returns:
 ["The Crystal Method", "Above and Beyond", "Lana Del Rey"]  
@@ -266,4 +266,4 @@ console.log(songsAndArtists);
  ```
 ![dots separator](./img/dots-separator.svg)
 
-## ~~~~~ End Version 1 ~~~~~
+## ~~~~~  Version 1 Complete ~~~~~

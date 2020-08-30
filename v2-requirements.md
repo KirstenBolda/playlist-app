@@ -80,4 +80,115 @@ My Playlist:
           3: (2) ["Blue Jeans", "Lana Del Rey"]
 
 ```
+![dots separator](./img/dots-separator.svg)
 
+#### It should have a function to add new songs and artists
+
+##### Starting with just songs:
+
+The original song list:
+```
+var songs = ['The Trip', 'Carry On', 'Tightrope', 'Blue Jeans'];
+```
+
+- create a function to add a song:
+
+```
+function addSong() {
+  songs.push('New Song');
+}
+```
+- use the function to add a song:
+
+```
+addSong()
+// returns:
+undefined
+```
+
+- view the new array using the `displaySongs()` function created in step one
+
+```
+displaySongs()
+// returns:
+My Playlist: (5) ["The Trip", "Carry On", "Tightrope", "Blue Jeans", "New Song"]
+```
+
+- instead of returning undefined and then running the displaySongs() function separately, update the addSong() function to include the `displaySongs()` function inside the `addSong()` function
+```
+function addSong() {
+  songs.push('New Song');
+  displaySongs();
+}
+```
+
+- call addSong() function:
+```
+addSong()
+// returns:
+My Playlist: (6) ["The Trip", "Carry On", "Tightrope", "Blue Jeans", "New Song", "New Song"]
+```
+
+- customize the addSong() function by adding a parameter for the song to be added
+- need to provide a value for song when calling the function
+
+```
+function addSong(song) {
+  songs.push(song);
+  displaySongs();
+}
+```
+- call addSong() function with a song:
+   - make sure the value is a string
+```
+addSong('Infinite Circle')
+// returns:
+My Playlist: (7) ["The Trip", "Carry On", "Tightrope", "Blue Jeans", "New Song", "New Song", "Infinite Circle"]
+```
+
+##### Add the song and artist array:
+
+The original song and artist list:
+```
+var songsAndArtists = [
+                ['The Trip','Still Corners'],
+                ['Carry On','The Crystal Method'], 
+                ['Tightrope','Above and Beyond'], 
+                ['Blue Jeans','Lana Del Rey']
+                ];           
+```
+- make sure `displaySongsAndArtists()` is available in the program:
+
+```
+function displaySongsAndArtists() {
+  console.log('My Playlist:', songsAndArtists);
+}
+```
+- add a new song and artist array to the songsAndArtists array:
+```
+function addSongAndArtist() {
+  songsAndArtists.push(['New Song','New Artist']);
+  displaySongsAndArtists();
+}
+```
+- customize the function with parameters for the new song and artist array
+```
+function addSongAndArtist([newSong, newArtist]) {
+  songsAndArtists.push([newSong, newArtist]);
+  displaySongsAndArtists();
+}
+```
+- run the function with the song and artist array as the argument
+  - keep track of quotes and brackets syntax!
+
+```
+addSongAndArtist(['Infinite Circle', 'James Blackshaw'])
+// returns
+My Playlist: 
+    0: (2) ["The Trip", "Still Corners"]
+    1: (2) ["Carry On", "The Crystal Method"]
+    2: (2) ["Tightrope", "Above and Beyond"]
+    3: (2) ["Blue Jeans", "Lana Del Rey"]
+    4: (2) ["Infinite Circle", "James Blackshaw"]
+```
+![dots separator](./img/dots-separator.svg)
