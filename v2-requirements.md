@@ -9,7 +9,7 @@
 #### [x] It should have a function to display the artist associated with each song
 
 ## Add
-#### [ ] It should have a function to add new songs and artists
+#### [x] It should have a function to add new songs and artists
 
 ## Modify
 #### [ ] It should have a function to change a song
@@ -192,3 +192,58 @@ My Playlist:
     4: (2) ["Infinite Circle", "James Blackshaw"]
 ```
 ![dots separator](./img/dots-separator.svg)
+#### It should have a function to change a song
+
+The original song list:
+```
+var songs = ['The Trip', 'Carry On', 'Tightrope', 'Blue Jeans'];
+```
+
+- use parameters to access the song to be changed
+  - Two parameters:
+    - 1. The song to be changed
+    - 2. The new value for the song
+
+```
+function changeSong(position, newSong) {
+  songs[position] = newSong;
+}
+```
+- improve the function by including displaySongs() inside the function
+```
+function changeSong(position, newSong) {
+  songs[position] = newSong;
+  displaySongs();
+}
+```
+- call the function:
+
+```
+changeSong(0, 'The Trip')
+// returns:
+My Playlist: (4) ["The Trip", "Carry On", "Tightrope", "Blue Jeans"]
+```
+
+#### It should have a function to change an artist and song
+
+The original song and artist list:
+```
+var songsAndArtists = [
+                ['The Trip','Still Corners'],
+                ['Carry On','The Crystal Method'], 
+                ['Tightrope','Above and Beyond'], 
+                ['Blue Jeans','Lana Del Rey']
+                ];           
+```
+- use parameters to access the song to be changed
+  - Two parameters:
+    - 1. The song to be changed
+    - 2. The new value for the song
+```
+function changeSongOrArtist(position, position2, newData) {
+  songsAndArtists[position][position2] = newData;
+  displaySongsAndArtists();
+}
+```
+
+console.log(songsAndArtists[0][1]);
