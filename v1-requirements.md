@@ -29,7 +29,7 @@
 
 #### [x] It should have a way to delete an artist
 
-#### [ ] It should have a way to delete a song and artist together
+#### [x] It should have a way to delete a song and artist together
 
 ![dots separator](./img/dots-separator.svg)
 
@@ -86,6 +86,7 @@ console.log(songsAndArtists);
 ``` 
 
 ### Display songs with a playlist title:
+- give the playlist array a label using a string:
 
 ```
 console.log('My Playlist: ', songsAndArtists);
@@ -185,9 +186,9 @@ songsAndArtists
 #### It should have a way to delete a song or artist
 - use the `.splice()` array method
   - takes two arguments:
-    1. where to begin deleting array items
-    2. how many items to delete
-  - returns the deleted items(s)
+    1. **where** to begin deleting array items
+    2. **how many** items to delete
+  - returns the deleted item(s)
   - array consists of remaining items
 
 ```
