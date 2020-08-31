@@ -190,6 +190,7 @@ My Playlist:
     4: (2) ["Infinite Circle", "James Blackshaw"]
 ```
 ![dots separator](./img/dots-separator.svg)
+
 #### It should have a function to change a song
 
 The original song list:
@@ -285,4 +286,3 @@ My Playlist:
   3: (2) ["Blue Jeans", "Lana Del Rey"]
 ```
 ![dots separator](./img/dots-separator.svg)
-
