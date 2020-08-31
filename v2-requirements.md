@@ -12,11 +12,9 @@
 #### [x] It should have a function to add new songs and artists
 
 ## Modify
-#### [ ] It should have a function to change a song
+#### [x] It should have a function to change a song
 
-#### [ ] It should have a function to change an artist
-
-#### [ ] It should have a function to change an artist and song
+#### [x] It should have a function to change an artist and song
 
 ## Delete
 
@@ -237,13 +235,54 @@ var songsAndArtists = [
 ```
 - use parameters to access the song to be changed
   - Two parameters:
-    - 1. The song to be changed
-    - 2. The new value for the song
+    - 1. The song or artist to be changed
+       - use index for array, then index for second array
+    - 2. The new value for the song or artist
 ```
 function changeSongOrArtist(position, position2, newData) {
   songsAndArtists[position][position2] = newData;
   displaySongsAndArtists();
 }
 ```
+- call the function:
+```
+changeSongOrArtist(0,1, 'James Blackshaw');
+// returns:
+My Playlist: 
+    0: (2) ["The Trip", "James Blackshaw"]
+    1: (2) ["Carry On", "The Crystal Method"]
+    2: (2) ["Tightrope", "Above and Beyond"]
+    3: (2) ["Blue Jeans", "Lana Del Rey"]
+```
 
-console.log(songsAndArtists[0][1]);
+- change the artist and the song at the same time:
+  - remember to include `displaySongsAndArtists()` function
+
+```
+function displaySongsAndArtists() {
+  console.log('My Playlist:', songsAndArtists);
+}  
+```
+
+- write the function with four parameters:
+```
+function changeSongAndArtist(songArray, songIndex, artistIndex, newSong, newArtist) {
+  songsAndArtists[songArray][songIndex] = newSong;
+  songsAndArtists[songArray][artistIndex] = newArtist;
+  displaySongsAndArtists();
+}
+```
+
+- call the function with the indexes and new song/artist parameters
+
+```
+changeSongAndArtist(0, 0, 1, 'Infinite Circle', 'James Blackshaw')
+// returns
+My Playlist:
+  0: (2) ["Infinite Circle", "James Blackshaw"]
+  1: (2) ["Carry On", "The Crystal Method"]
+  2: (2) ["Tightrope", "Above and Beyond"]
+  3: (2) ["Blue Jeans", "Lana Del Rey"]
+```
+![dots separator](./img/dots-separator.svg)
+
