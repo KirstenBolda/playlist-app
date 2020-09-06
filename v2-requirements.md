@@ -20,9 +20,7 @@
 
 #### [ ] It should have a function to delete a song
 
-#### [ ] It should have a function to delete an artist
-
-#### [ ] It should have a function to delete a song and artist together
+#### [ ] It should have a function to delete a song and artist simultaneously
 
 ![dots separator](./img/dots-separator.svg)
 
@@ -286,3 +284,9 @@ My Playlist:
   3: (2) ["Blue Jeans", "Lana Del Rey"]
 ```
 ![dots separator](./img/dots-separator.svg)
+
+#### It should have a function to delete a song
+
+
+
+#### It should have a function to delete a song and artist simultaneously
