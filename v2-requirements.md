@@ -18,9 +18,9 @@
 
 ## Delete
 
-#### [ ] It should have a function to delete a song
+#### [x] It should have a function to delete a song
 
-#### [ ] It should have a function to delete a song and artist simultaneously
+#### [x] It should have a function to delete a song and artist simultaneously
 
 ![dots separator](./img/dots-separator.svg)
 
