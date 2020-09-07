@@ -1,6 +1,6 @@
 # Playlist Requirements
 
-![number 1](./img/numbers/number-1.svg)
+![version](./img/version.svg)![number 1](./img/numbers/number-1.svg)
 ---
 ## Storage
 #### [x] It should have a place to store the songs
