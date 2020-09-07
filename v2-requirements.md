@@ -1,6 +1,6 @@
 # Playlist Requirements
 
-![number 2](./img/numbers/number-2.svg)
+![version](./img/version.svg) ![number 2](./img/numbers/number-2.svg)
 ---
 ## Display
 
@@ -287,6 +287,63 @@ My Playlist:
 
 #### It should have a function to delete a song
 
+The original song list:
+```
+var songs = ['The Trip', 'Carry On', 'Tightrope', 'Blue Jeans'];
+```
 
+- use `.splice` method to remove a song
+- use position parameter for position in `.splice` method
+
+```
+function deleteSong(position) {
+  songs.splice(position, 1);
+  displaySongs();
+}
+```
+*Example:*
+- call the `deleteSong` function to delete the first song:
+
+```
+deleteSong(0);
+// returns:
+My Playlist: (3) ["Carry On", "Tightrope", "Blue Jeans"]
+```
 
 #### It should have a function to delete a song and artist simultaneously
+
+The original song and artist list:
+
+```
+var songsAndArtists = [
+    ['The Trip','Still Corners'],
+    ['Carry On','The Crystal Method'], 
+    ['Tightrope','Above and Beyond'], 
+    ['Blue Jeans','Lana Del Rey']
+    ];   
+``` 
+
+- use `.splice` method to remove the song/artist array
+- use position parameter for position in `.splice` method
+
+```
+function deleteSongAndArtist(position) {
+  songsAndArtists.splice(position, 1);
+  displaySongsAndArtists();
+}
+```
+*Example:*
+- call the `deleteSongAndArtist` function to delete the second song:
+
+```
+deleteSongAndArtist(1);
+// returns:
+My Playlist: 
+    0: (2) ["The Trip", "Still Corners"]
+    1: (2) ["Tightrope", "Above and Beyond"]
+    2: (2) ["Blue Jeans", "Lana Del Rey"]
+```
+![dots separator](./img/dots-separator.svg)
+
+## ~~~~~  Version 2 Complete ~~~~~
+   
