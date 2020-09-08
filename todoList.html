@@ -10,17 +10,23 @@
   Playlist under construction!
   <script >
       var songList = {
-         songs: ['The Trip', 'Carry On', 'Tightrope', 'Blue Jeans']
-      };
+  songs: ['The Trip', 'Carry On', 'Tightrope', 'Blue Jeans'],
+  displaySongs: function() {
+    console.log('My Playlist:', this.songs);
+  }
+};
 
-      var playlist = {
-         songsAndArtists: [
+var playlist = {
+  songsAndArtists: [
     ['The Trip','Still Corners'],
     ['Carry On','The Crystal Method'], 
     ['Tightrope','Above and Beyond'], 
     ['Blue Jeans','Lana Del Rey']
-    ]
-      };
+    ],
+    displaySongsAndArtists: function() {
+      console.log('My Playlist:', this.songsAndArtists);
+    }
+};
   </script>
 </body>
 </html>
