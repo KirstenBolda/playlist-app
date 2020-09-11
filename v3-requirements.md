@@ -11,15 +11,15 @@
 
 ## Display
 
-#### [ ] It should have a displaySongs method
+#### [x] It should have a displaySongs method
 
-#### [ ] It should have a display Song and Artist method
+#### [x] It should have a display Song and Artist method
 
 ## Add
 
-#### [ ] It should have an add Songs method
+#### [x] It should have an add Songs method
 
-#### [ ] It should have an add Songs and Artists method
+#### [x] It should have an add Songs and Artists method
 
 ## Modify
 
@@ -180,5 +180,108 @@ My Playlist:
   2: (2) ["Tightrope", "Above and Beyond"]
   3: (2) ["Blue Jeans", "Lana Del Rey"]
 
+```
+![dots separator](./img/dots-separator.svg)
+
+#### It should have an add Songs method
+
+- add a method derived from the version 2 function to the songList object
+
+- songList object:
+```
+ var songList = {
+  songs: ['The Trip', 
+          'Carry On', 
+          'Tightrope', 
+          'Blue Jeans'],
+  displaySongs: function() {
+    console.log('My Playlist:', this.songs);
+  }
+};
+```
+
+- addSong function:
+```
+ function addSong(song) {
+  songs.push(song);
+  displaySongs();
+}
+```
+- songList object with addSong method added:
+```
+ var songList = {
+  songs: ['The Trip', 
+          'Carry On', 
+          'Tightrope', 
+          'Blue Jeans'],
+  displaySongs: function() {
+    console.log('My Playlist:', this.songs);
+  },
+  addSong: function(song) {
+    this.songs.push(song);
+    this.displaySongs();
+  }
+};
+```
+
+#### It should have an add Songs and Artists method
+
+- playlist object:
+
+```
+var playlist = {
+  songsAndArtists: [
+    ['The Trip','Still Corners'],
+    ['Carry On','The Crystal Method'], 
+    ['Tightrope','Above and Beyond'], 
+    ['Blue Jeans','Lana Del Rey']
+    ],
+    displaySongsAndArtists: function() {
+      console.log('My Playlist:', this.songsAndArtists);
+    }
+};
+```
+
+- add songs and artists function:
+
+```
+function addSongAndArtist([newSong, newArtist]) {
+  songsAndArtists.push([newSong, newArtist]);
+  displaySongsAndArtists();
+}
+```
+
+- playlist object with addSongAndArtis method added:
+
+```
+var playlist = {
+  songsAndArtists: [
+    ['The Trip','Still Corners'],
+    ['Carry On','The Crystal Method'], 
+    ['Tightrope','Above and Beyond'], 
+    ['Blue Jeans','Lana Del Rey']
+    ],
+    displaySongsAndArtists: function() {
+      console.log('My Playlist:', this.songsAndArtists);
+    },
+    addSongAndArtist: function(newSong, newArtist) {
+      this.songsAndArtists.push([newSong, newArtist]);
+      this.displaySongsAndArtists();
+    }
+};
+```
+- update object between `<script></script>` tags in html file
+
+- run the method to test:
+
+```
+playlist.addSongAndArtist('Slowly', 'Haberdashery');
+// returns:
+My Playlist: 
+    0: (2) ["The Trip", "Still Corners"]
+    1: (2) ["Carry On", "The Crystal Method"]
+    2: (2) ["Tightrope", "Above and Beyond"]
+    3: (2) ["Blue Jeans", "Lana Del Rey"]
+    4: (2) ["Slowly", "Haberdashery"]
 ```
 ![dots separator](./img/dots-separator.svg)
