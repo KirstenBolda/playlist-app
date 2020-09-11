@@ -10,9 +10,16 @@
   Playlist under construction!
   <script >
       var songList = {
-  songs: ['The Trip', 'Carry On', 'Tightrope', 'Blue Jeans'],
+  songs: ['The Trip', 
+          'Carry On', 
+          'Tightrope', 
+          'Blue Jeans'],
   displaySongs: function() {
     console.log('My Playlist:', this.songs);
+  },
+  addSong: function(song) {
+    this.songs.push(song);
+    this.displaySongs();
   }
 };
 
@@ -25,6 +32,10 @@ var playlist = {
     ],
     displaySongsAndArtists: function() {
       console.log('My Playlist:', this.songsAndArtists);
+    },
+    addSongAndArtist: function(newSong, newArtist) {
+      this.songsAndArtists.push([newSong, newArtist]);
+      this.displaySongsAndArtists();
     }
 };
   </script>
