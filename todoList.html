@@ -20,6 +20,10 @@
   addSong: function(song) {
     this.songs.push(song);
     this.displaySongs();
+  },
+  changeSong: function(position, newSong) {
+    this.songs[position] = newSong;
+    this.displaySongs();
   }
 };
 
@@ -35,6 +39,13 @@ var playlist = {
     },
     addSongAndArtist: function(newSong, newArtist) {
       this.songsAndArtists.push([newSong, newArtist]);
+      this.displaySongsAndArtists();
+    },
+    changeSongAndArtist: function(songArray, newSong, newArtist) {
+      const songIndex = 0;
+      const artistIndex = 1;
+      this.songsAndArtists[songArray][0] = newSong;
+      this.songsAndArtists[songArray][1] = newArtist;
       this.displaySongsAndArtists();
     }
 };
