@@ -24,6 +24,10 @@
   changeSong: function(position, newSong) {
     this.songs[position] = newSong;
     this.displaySongs();
+  }, 
+  deleteSong: function(position) {
+     this.songs.splice(position, 1);
+     this.displaySongs();
   }
 };
 
@@ -46,6 +50,10 @@ var playlist = {
       const artistIndex = 1;
       this.songsAndArtists[songArray][0] = newSong;
       this.songsAndArtists[songArray][1] = newArtist;
+      this.displaySongsAndArtists();
+    },
+    deleteSongAndArtist: function(position) {
+      this.songsAndArtists.splice(position, 1);
       this.displaySongsAndArtists();
     }
 };

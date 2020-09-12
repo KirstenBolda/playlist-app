@@ -2,36 +2,41 @@
 
 ![version](./img/version.svg) ![number 3](./img/numbers/number-3.svg)
 ---
-## Storage
+## Song Storage
+[Code for adding storage feature](#storage)
 
 #### [x] It should store the songs in an object
 
 #### [x] It should store the song/artist arrays in a playlist object
 
 
-## Display
+## Song Display
+[Code for adding display feature](#display)
 
 #### [x] It should have a displaySongs method
 
 #### [x] It should have a display Song and Artist method
 
-## Add
+## Add Songs
+[Code for adding songs feature](#add)
 
 #### [x] It should have an add Songs method
 
 #### [x] It should have an add Songs and Artists method
 
-## Modify
+## Modify Songs
+[Code for modifying songs feature](#modify)
 
 #### [x] It should have a change Song method
 
 #### [x] It should have a change Song and Artist method
 
-## Delete
+## Delete Songs
+[Code for delete songs feature](#delete)
 
-#### [ ] It should have a method to delete a song
+#### [x] It should have a method to delete a song
 
-#### [ ] It should have a method to delete a song and artist simultaneously
+#### [x] It should have a method to delete a song and artist simultaneously
 
 ![dots separator](./img/dots-separator.svg)
 
@@ -87,6 +92,7 @@ var playlist = {
 };
 ```
 ![dots separator](./img/dots-separator.svg)
+## Display
 
 #### It should have a displaySongs method
 
@@ -182,7 +188,7 @@ My Playlist:
 
 ```
 ![dots separator](./img/dots-separator.svg)
-
+## Add
 #### It should have an add Songs method
 
 - add a method derived from the version 2 function to the songList object
@@ -285,6 +291,8 @@ My Playlist:
     4: (2) ["Slowly", "Haberdashery"]
 ```
 ![dots separator](./img/dots-separator.svg)
+
+## Modify
 
 #### It should have a change Song method
 
@@ -453,5 +461,162 @@ My Playlist:
   1: (2) ["Carry On", "The Crystal Method"]
   2: (2) ["Tightrope", "Above and Beyond"]
   3: (2) ["Blue Jeans", "Lana Del Rey"]
-  ```
+```
 ![dots separator](./img/dots-separator.svg)
+
+## Delete
+
+#### It should have a method to delete a song
+
+- add the deleteSong method derived from the version 2 function to the songList object
+
+- the songList object:
+```
+ var songList = {
+  songs: ['The Trip', 
+          'Carry On', 
+          'Tightrope', 
+          'Blue Jeans'],
+  displaySongs: function() {
+    console.log('My Playlist:', this.songs);
+  },
+  addSong: function(song) {
+    this.songs.push(song);
+    this.displaySongs();
+  },
+  changeSong: function(position, newSong) {
+    this.songs[position] = newSong;
+    this.displaySongs();
+  }
+};
+```
+
+- the version 2 deleteSong function:
+
+```
+function deleteSong(position) {
+  songs.splice(position, 1);
+  displaySongs();
+}
+```
+
+- deleteSong function added as a method:
+
+```
+ var songList = {
+  songs: ['The Trip', 
+          'Carry On', 
+          'Tightrope', 
+          'Blue Jeans'],
+  displaySongs: function() {
+    console.log('My Playlist:', this.songs);
+  },
+  addSong: function(song) {
+    this.songs.push(song);
+    this.displaySongs();
+  },
+  changeSong: function(position, newSong) {
+    this.songs[position] = newSong;
+    this.displaySongs();
+  }, 
+  deleteSong: function(position) {
+     this.songs.splice(position, 1);
+     this.displaySongs();
+  }
+};
+```
+- test the new method:
+
+```
+songList.deleteSong(0);
+// returns:
+My Playlist: 
+    0: "Carry On"
+    1: "Tightrope"
+    2: "Blue Jeans"
+```
+
+#### It should have a method to delete a song and artist simultaneously
+
+- add the deleteSongAndArtis method derived from the version 2 function to the playlist object
+
+- the playlist object:
+```
+  var playlist = {
+    songsAndArtists: [
+      ['The Trip','Still Corners'],
+      ['Carry On','The Crystal Method'], 
+      ['Tightrope','Above and Beyond'], 
+      ['Blue Jeans','Lana Del Rey']
+      ],
+      displaySongsAndArtists: function() {
+        console.log('My Playlist:', this.songsAndArtists);
+      },
+        addSongAndArtist: function(newSong, newArtist) {
+        this.songsAndArtists.push([newSong, newArtist]);
+        this.displaySongsAndArtists();
+      },
+      changeSongAndArtist: function(songArray, newSong, newArtist) {
+        const songIndex = 0;
+        const artistIndex = 1;
+        this.songsAndArtists[songArray][0] = newSong;
+        this.songsAndArtists[songArray][1] = newArtist;
+        this.displaySongsAndArtists();
+      }
+    };
+```
+
+- the version 2 deleteSongAndArtist function:
+
+```
+function deleteSongAndArtist(position) {
+  songsAndArtists.splice(position, 1);
+  displaySongsAndArtists();
+}
+```
+
+- deleteSongAndArtist function added as a method:
+
+```
+ var playlist = {
+  songsAndArtists: [
+    ['The Trip','Still Corners'],
+    ['Carry On','The Crystal Method'], 
+    ['Tightrope','Above and Beyond'], 
+    ['Blue Jeans','Lana Del Rey']
+    ],
+    displaySongsAndArtists: function() {
+      console.log('My Playlist:', this.songsAndArtists);
+    },
+    addSongAndArtist: function(newSong, newArtist) {
+      this.songsAndArtists.push([newSong, newArtist]);
+      this.displaySongsAndArtists();
+    },
+    changeSongAndArtist: function(songArray, newSong, newArtist) {
+      const songIndex = 0;
+      const artistIndex = 1;
+      this.songsAndArtists[songArray][0] = newSong;
+      this.songsAndArtists[songArray][1] = newArtist;
+      this.displaySongsAndArtists();
+    },
+    deleteSongAndArtist: function(position) {
+      this.songsAndArtists.splice(position, 1);
+      this.displaySongsAndArtists();
+    }
+};
+```
+- test the new method:
+
+```
+  playlist.deleteSongAndArtist(3);
+  // returns:
+  My Playlist: 
+     0: (2) ["The Trip", "Still Corners"]
+      1: (2) ["Carry On", "The Crystal Method"]
+      2: (2) ["Tightrope", "Above and Beyond"]  
+   
+```
+
+![dots separator](./img/dots-separator.svg)
+
+## ~~~~~  Version 3 Complete ~~~~~
