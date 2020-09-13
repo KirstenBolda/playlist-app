@@ -12,8 +12,15 @@
 
 #### [x] Add a link to an audio file of the song in the playlist array
 
-## Change song status
+## Modify Song Name
 [Code for modifying songs feature](#modify)
+
+#### [x] Update changeSong to change a song name property
+
+#### [ ] Update changeSongOrArtist to change a song, artist or url property
+
+## Change song status
+[Code for changing songs status feature](#status)
 
 #### [ ] Song status should change from played to not played
 
@@ -226,13 +233,93 @@ My Playlist:
       __proto__: Object
     1:
       artist: "Still Corners"
-      audioLink: "/Users/kirstenbolda/Music/Music/Media.localized/Still Corners/Strange Pleasures (Bonus Track Version)/01 The Trip.m4a"
+      audioLink: "/Users/xxxxxxxxxx/Music/Music/Media.localized/Still Corners/Strange Pleasures (Bonus Track Version)/01 The Trip.m4a"
       played: false
       song: "The Trip"
 ```
 ![dots separator](./img/dots-separator.svg)
 
 ## Modify
+
+#### Modify Song Name
+
+#### Update changeSong to change a song name property
+
+- version 3 changeSong method:
+
+```
+var songList = {
+      songs: [],
+
+      displaySongs: function () {
+        console.log('My Playlist:', this.songs);
+      },
+      addSong: function (songName) {
+        this.songs.push({
+          songName: songName,
+          played: false
+        });
+        this.displaySongs();
+      },
+      changeSong: function (position, newSong) {
+        this.songs[position] = newSong;
+        this.displaySongs();
+      },
+      deleteSong: function (position) {
+        this.songs.splice(position, 1);
+        this.displaySongs();
+      }
+    };
+```
+
+- update changeSong to modify the text of a song with songName property in songList property:
+
+```
+var songList = {
+      songs: [],
+
+      displaySongs: function () {
+        console.log('My Playlist:', this.songs);
+      },
+      addSong: function (songName) {
+        this.songs.push({
+          songName: songName,
+          played: false
+        });
+        this.displaySongs();
+      },
+      changeSong: function (position, newSong) {
+        this.songs[position].songName = newSong;
+        this.displaySongs();
+      },
+      deleteSong: function (position) {
+        this.songs.splice(position, 1);
+        this.displaySongs();
+      }
+    };
+```
+- test the new method:
+
+```
+// first add a song:
+songList.addSong('Wildness');
+// returns:
+My Playlist:
+    0: {songName: "Wildness", played: false}
+// then change the song in position 0
+songList.changeSong("Lucid Dreaming");
+// returns:
+My Playlist:
+    0: {songName: "Lucid Dreaming", played: false}
+```
+
+
+#### Update changeSongOrArtist to change a song, artist or url property
+
+
+![dots separator](./img/dots-separator.svg)
+
+## Status
 
 
 

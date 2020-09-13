@@ -25,7 +25,7 @@
         this.displaySongs();
       },
       changeSong: function (position, newSong) {
-        this.songs[position] = newSong;
+        this.songs[position].songName = newSong;
         this.displaySongs();
       },
       deleteSong: function (position) {
