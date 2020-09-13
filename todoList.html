@@ -1,62 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href ="./style.css" type="text/css">
+  <link rel="stylesheet" href="./style.css" type="text/css">
   <title>My Playlist</title>
 </head>
+
 <body>
   Playlist under construction!
-  <script >
-      var songList = {
-  songs: ['The Trip', 
-          'Carry On', 
-          'Tightrope', 
-          'Blue Jeans'],
-  displaySongs: function() {
-    console.log('My Playlist:', this.songs);
-  },
-  addSong: function(song) {
-    this.songs.push(song);
-    this.displaySongs();
-  },
-  changeSong: function(position, newSong) {
-    this.songs[position] = newSong;
-    this.displaySongs();
-  }, 
-  deleteSong: function(position) {
-     this.songs.splice(position, 1);
-     this.displaySongs();
-  }
-};
+  <script>
+    var songList = {
+      songs: [],
 
-var playlist = {
-  songsAndArtists: [
-    ['The Trip','Still Corners'],
-    ['Carry On','The Crystal Method'], 
-    ['Tightrope','Above and Beyond'], 
-    ['Blue Jeans','Lana Del Rey']
-    ],
-    displaySongsAndArtists: function() {
-      console.log('My Playlist:', this.songsAndArtists);
-    },
-    addSongAndArtist: function(newSong, newArtist) {
-      this.songsAndArtists.push([newSong, newArtist]);
-      this.displaySongsAndArtists();
-    },
-    changeSongAndArtist: function(songArray, newSong, newArtist) {
-      const songIndex = 0;
-      const artistIndex = 1;
-      this.songsAndArtists[songArray][0] = newSong;
-      this.songsAndArtists[songArray][1] = newArtist;
-      this.displaySongsAndArtists();
-    },
-    deleteSongAndArtist: function(position) {
-      this.songsAndArtists.splice(position, 1);
-      this.displaySongsAndArtists();
-    }
-};
+      displaySongs: function () {
+        console.log('My Playlist:', this.songs);
+      },
+      addSong: function (songName) {
+        this.songs.push({
+          songName: songName,
+          played: false
+        });
+        this.displaySongs();
+      },
+      changeSong: function (position, newSong) {
+        this.songs[position] = newSong;
+        this.displaySongs();
+      },
+      deleteSong: function (position) {
+        this.songs.splice(position, 1);
+        this.displaySongs();
+      }
+    };
+
+    var playlist = {
+      songsAndArtists: [],
+
+      displaySongsAndArtists: function () {
+        console.log('My Playlist:', this.songsAndArtists);
+      },
+      addSongAndArtist: function (newSong, newArtist, linkToAudio) {
+        this.songsAndArtists.push({
+          song: newSong,
+          artist: newArtist,
+          played: false,
+          audioLink: linkToAudio
+        });
+        this.displaySongsAndArtists();
+      },
+      changeSongAndArtist: function (songArray, newSong, newArtist) {
+        const songIndex = 0;
+        const artistIndex = 1;
+        this.songsAndArtists[songArray][0] = newSong;
+        this.songsAndArtists[songArray][1] = newArtist;
+        this.displaySongsAndArtists();
+      },
+      deleteSongAndArtist: function (position) {
+        this.songsAndArtists.splice(position, 1);
+        this.displaySongsAndArtists();
+      }
+    };
   </script>
 </body>
+
 </html>
