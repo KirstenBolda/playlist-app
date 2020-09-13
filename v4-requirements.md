@@ -316,7 +316,7 @@ My Playlist:
 
 #### Update changeSongOrArtist to change a song, artist or url property
 
-
+![number 4](./img/numbers/number-4.svg)
 ![dots separator](./img/dots-separator.svg)
 
 ## Status
