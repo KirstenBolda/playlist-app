@@ -316,9 +316,88 @@ My Playlist:
 
 #### Update changeSongOrArtist to change a song, artist or url property
 
-![number 4](./img/numbers/number-4.svg)
-![number 4](./img/numbers/number-4.svg)
+- version 3 changeSongOrArtist method in the playlist object:
+```
+var playlist = {
+      songsAndArtists: [],
+      
+      displaySongsAndArtists: function () {
+        console.log('My Playlist:', this.songsAndArtists);
+      },
+      addSongAndArtist: function (newSong, newArtist, linkToAudio) {
+        this.songsAndArtists.push({
+          song: newSong,
+          artist: newArtist,
+          played: false,
+          audioLink: linkToAudio
+        });
+        this.displaySongsAndArtists();
+      },
+      changeSongAndArtist: function (songArray, newSong, newArtist) {
+        const songIndex = 0;
+        const artistIndex = 1;
+        this.songsAndArtists[songArray][0] = newSong;
+        this.songsAndArtists[songArray][1] = newArtist;
+        this.displaySongsAndArtists();
+      },
+      deleteSongAndArtist: function (position) {
+        this.songsAndArtists.splice(position, 1);
+        this.displaySongsAndArtists();
+      }
+    };
+```
 
+- update changeSong to modify the text of a song with songName property in songList property:
+
+```
+var playlist = {
+  songsAndArtists: [],
+
+  displaySongsAndArtists: function () {
+    console.log('My Playlist:', this.songsAndArtists);
+  },
+  addSongAndArtist: function (newSong, newArtist, linkToAudio) {
+    this.songsAndArtists.push({
+      song: newSong,
+      artist: newArtist,
+      played: false,
+      audioLink: linkToAudio
+    });
+    this.displaySongsAndArtists();
+  },
+  changeSongAndArtist: function ( position, 
+                                  newSong, 
+                                  newArtist, 
+                                  audioLink) {
+    this.songsAndArtists[position].song = newSong;
+    this.songsAndArtists[position].artist = newArtist;
+    this.songsAndArtists[position].audioLink = audioLink;
+    this.displaySongsAndArtists();
+  },
+  
+  deleteSongAndArtist: function (position) {
+    this.songsAndArtists.splice(position, 1);
+    this.displaySongsAndArtists();
+  }
+};
+```
+
+- test the change song method:
+```
+// add songs
+playlist.addSongAndArtist('Lucid Dream', 'Owl City', 'https://www.youtube.com/watch?v=RMaLi0xsEWY')
+
+playlist.addSongAndArtist('The Trip', 'Still Corners', '/Users/kirstenbolda/Music/Music/Media.localized/Still Corners/Strange Pleasures (Bonus Track Version)/01 The Trip.m4a' )
+
+playlist.addSongAndArtist( 'Maybe It/s Time', 'Bradley Cooper', 'https://www.youtube.com/watch?v=RdljoTFMhO4' )
+// change the first song:
+playlist.changeSongAndArtist(0, 'Trust the Sun', 'Elbow', '/Users/kirstenbolda/Music/Music/Media.localized/Elbow/Little Fictions/03 Trust the Sun.m4a');
+// returns:
+My Playlist:
+    0: {song: "Trust the Sun", artist: "Elbow", played: false, audioLink: "/Users/kirstenbolda/Music/Music/Media.localized/Elbow/Little Fictions/03 Trust the Sun.m4a"}
+    1: {song: "The Trip", artist: "Still Corners", played: false, audioLink: "/Users/kirstenbolda/Music/Music/Media.localized/St…e Pleasures (Bonus Track Version)/01 The Trip.m4a"}
+    2: {song: "Maybe It/s Time", artist: "Bradley Cooper", played: false, audioLink: "https://www.youtube.com/watch?v=RdljoTFMhO4"}
+```
 ![dots separator](./img/dots-separator.svg)
 
 ## Status
