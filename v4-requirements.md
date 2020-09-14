@@ -320,7 +320,7 @@ My Playlist:
 ```
 var playlist = {
       songsAndArtists: [],
-
+      
       displaySongsAndArtists: function () {
         console.log('My Playlist:', this.songsAndArtists);
       },
