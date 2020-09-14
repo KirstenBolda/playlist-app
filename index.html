@@ -49,13 +49,16 @@
         });
         this.displaySongsAndArtists();
       },
-      changeSongAndArtist: function (songArray, newSong, newArtist) {
-        const songIndex = 0;
-        const artistIndex = 1;
-        this.songsAndArtists[songArray][0] = newSong;
-        this.songsAndArtists[songArray][1] = newArtist;
+      changeSongAndArtist: function (position,
+        newSong,
+        newArtist,
+        audioLink) {
+        this.songsAndArtists[position].song = newSong;
+        this.songsAndArtists[position].artist = newArtist;
+        this.songsAndArtists[position].audioLink = audioLink;
         this.displaySongsAndArtists();
       },
+
       deleteSongAndArtist: function (position) {
         this.songsAndArtists.splice(position, 1);
         this.displaySongsAndArtists();
