@@ -35,35 +35,41 @@
     };
 
     var playlist = {
-      songsAndArtists: [],
+  songsAndArtists: [],
 
-      displaySongsAndArtists: function () {
-        console.log('My Playlist:', this.songsAndArtists);
-      },
-      addSongAndArtist: function (newSong, newArtist, linkToAudio) {
-        this.songsAndArtists.push({
-          song: newSong,
-          artist: newArtist,
-          played: false,
-          audioLink: linkToAudio
-        });
-        this.displaySongsAndArtists();
-      },
-      changeSongAndArtist: function (position,
-        newSong,
-        newArtist,
-        audioLink) {
-        this.songsAndArtists[position].song = newSong;
-        this.songsAndArtists[position].artist = newArtist;
-        this.songsAndArtists[position].audioLink = audioLink;
-        this.displaySongsAndArtists();
-      },
-
-      deleteSongAndArtist: function (position) {
-        this.songsAndArtists.splice(position, 1);
-        this.displaySongsAndArtists();
-      }
-    };
+  displaySongsAndArtists: function () {
+    console.log('My Playlist:', this.songsAndArtists);
+  },
+  addSongAndArtist: function (newSong, newArtist, linkToAudio) {
+    this.songsAndArtists.push({
+      song: newSong,
+      artist: newArtist,
+      played: false,
+      audioLink: linkToAudio
+    });
+    this.displaySongsAndArtists();
+  },
+  changeSongAndArtist: function ( position, 
+                                  newSong, 
+                                  newArtist, 
+                                  audioLink) {
+    this.songsAndArtists[position].song = newSong;
+    this.songsAndArtists[position].artist = newArtist;
+    this.songsAndArtists[position].audioLink = audioLink;
+    this.displaySongsAndArtists();
+  },
+  
+  deleteSongAndArtist: function (position) {
+    this.songsAndArtists.splice(position, 1);
+    this.displaySongsAndArtists();
+  },
+ 
+  togglePlayed: function(position) {
+    var song = this.songsAndArtists[position];
+    song.played = !song.played;
+    this.displaySongsAndArtists();
+  }
+};
   </script>
 </body>
 
