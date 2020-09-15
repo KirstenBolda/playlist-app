@@ -17,21 +17,21 @@
 
 #### [x] Update changeSong to change a song name property
 
-#### [ ] Update changeSongOrArtist to change a song, artist or url property
+#### [x] Update changeSongOrArtist to change a song, artist or url property
 
 ## Change song status
 [Code for changing songs status feature](#status)
 
-#### [ ] Song status should change from played to not played
+#### [x] Song status should change from played to not played
 
-#### [ ] Song/artist status should change from played to not played
+#### [x] Song/artist status should change from played to not played
 
-## Replay Songs
-[Code for replay songs feature](#repeat)
+## Delete song from playlist
+[Code for deleting songs feature](#delete)
 
-#### [ ] It should have a method to repeat a song
+#### [ ] It should delete a song
 
-#### [ ] It should have a method to repeat a song and artist 
+#### [ ] It should delete an entire song/artist/link entry
 
 
 ![dots separator](./img/dots-separator.svg)
@@ -402,12 +402,165 @@ My Playlist:
 
 ## Status
 
+#### Song status should change from played to not played
+- version 3 song list:
+```
+var songList = {
+      songs: [],
+
+      displaySongs: function () {
+        console.log('My Playlist:', this.songs);
+      },
+      addSong: function (songName) {
+        this.songs.push({
+          songName: songName,
+          played: false
+        });
+        this.displaySongs();
+      },
+      changeSong: function (position, newSong) {
+        this.songs[position].songName = newSong;
+        this.displaySongs();
+      },
+      deleteSong: function (position) {
+        this.songs.splice(position, 1);
+        this.displaySongs();
+      }
+    };
+```
+- add togglePlayed method:
+
+```
+var songList = {
+      songs: [],
+
+      displaySongs: function () {
+        console.log('My Playlist:', this.songs);
+      },
+      addSong: function (songName) {
+        this.songs.push({
+          songName: songName,
+          played: false
+        });
+        this.displaySongs();
+      },
+      changeSong: function (position, newSong) {
+        this.songs[position].songName = newSong;
+        this.displaySongs();
+      },
+      deleteSong: function (position) {
+        this.songs.splice(position, 1);
+        this.displaySongs();
+      },
+      togglePlayed: function(position) {
+        var song = this.songs[position];
+        song.played = !song.played;
+        this.displaySongs();
+      }
+    };
+```
+
+- test togglePlayed method:
+
+```
+songList.addSong('The Trip');
+songList.togglePlayed(0);
+// My Playlist: 
+    0: {songName: "The Trip", played: true}
+```
+
+#### Song/artist status should change from played to not played
+
+- version 3 playlist object without toggle method:
+
+```
+var playlist = {
+  songsAndArtists: [],
+
+  displaySongsAndArtists: function () {
+    console.log('My Playlist:', this.songsAndArtists);
+  },
+  addSongAndArtist: function (newSong, newArtist, linkToAudio) {
+    this.songsAndArtists.push({
+      song: newSong,
+      artist: newArtist,
+      played: false,
+      audioLink: linkToAudio
+    });
+    this.displaySongsAndArtists();
+  },
+  changeSongAndArtist: function ( position, 
+                                  newSong, 
+                                  newArtist, 
+                                  audioLink) {
+    this.songsAndArtists[position].song = newSong;
+    this.songsAndArtists[position].artist = newArtist;
+    this.songsAndArtists[position].audioLink = audioLink;
+    this.displaySongsAndArtists();
+  },
+  
+  deleteSongAndArtist: function (position) {
+    this.songsAndArtists.splice(position, 1);
+    this.displaySongsAndArtists();
+  }
+};
+```
+
+- add togglePlayed method:
+
+```
+var playlist = {
+  songsAndArtists: [],
+
+  displaySongsAndArtists: function () {
+    console.log('My Playlist:', this.songsAndArtists);
+  },
+  addSongAndArtist: function (newSong, newArtist, linkToAudio) {
+    this.songsAndArtists.push({
+      song: newSong,
+      artist: newArtist,
+      played: false,
+      audioLink: linkToAudio
+    });
+    this.displaySongsAndArtists();
+  },
+  changeSongAndArtist: function ( position, 
+                                  newSong, 
+                                  newArtist, 
+                                  audioLink) {
+    this.songsAndArtists[position].song = newSong;
+    this.songsAndArtists[position].artist = newArtist;
+    this.songsAndArtists[position].audioLink = audioLink;
+    this.displaySongsAndArtists();
+  },
+  
+  deleteSongAndArtist: function (position) {
+    this.songsAndArtists.splice(position, 1);
+    this.displaySongsAndArtists();
+  },
+ 
+  togglePlayed: function(position) {
+    var song = this.songsAndArtists[position];
+    song.played = !song.played;
+    this.displaySongsAndArtists();
+  }
+};
+```
+- test the togglePlayed method:
+
+```
+playlist.togglePlayed(1);
+// returns:
+My Playlist:
+0: {song: "Lucid Dream", artist: "Owl City", played: false, audioLink: "https://www.youtube.com/watch?v=RMaLi0xsEWY"}
+1: {song: "The Trip", artist: "Still Corners", played: true, audioLink: "/Users/xxxxxxxxxxxx/Music/Music/Media.localized/St…e Pleasures (Bonus Track Version)/01 The Trip.m4a"}
+2: {song: "Maybe It/s Time", artist: "Bradley Cooper", played: false, audioLink: "https://www.youtube.com/watch?v=RdljoTFMhO4"}
+```
 
 
 ![dots separator](./img/dots-separator.svg)
 
-## Repeat
 
+## Delete
 
 ![dots separator](./img/dots-separator.svg)
-
