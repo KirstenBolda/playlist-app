@@ -564,3 +564,9 @@ My Playlist:
 ## Delete
 
 ![dots separator](./img/dots-separator.svg)
+
+- both delete methods (`deleteSong` and `deleteSongAndArtist`) work the same on the object as on the array
+
+![dots separator](./img/dots-separator.svg)
+
+## ~~~~~  Version 4 Complete ~~~~~
