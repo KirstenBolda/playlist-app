@@ -20,7 +20,13 @@
         } else {
           console.log('My Playlist:');
           for (let i = 0; i < this.songs.length; i++) {
-            console.log(this.songs[i].songName);
+            // console.log(this.songs[i].songName);
+
+            if (this.songs[i].played === true) {
+              console.log('(x)', this.songs[i].songName);
+            } else {
+              console.log('( )', this.songs[i].songName);
+            }
           }
         }
       },
@@ -39,58 +45,75 @@
       deleteSong: function (position) {
         this.songs.splice(position, 1);
         this.displaySongs();
+      },
+      togglePlayed: function (position) {
+        var song = this.songs[position];
+        song.played = !song.played;
+        this.displaySongs();
       }
     };
 
     var playlist = {
-        songsAndArtists: [
-        {song: "Lucid Dream", artist: "Owl City", played: false, audioLink: "https://www.youtube.com/watch?v=RMaLi0xsEWY"},
-    {song: "The Trip", artist: "Still Corners", played: false, audioLink: "/Users/kirstenbolda/Music/Music/Media.localized/St…e Pleasures (Bonus Track Version)/01 The Trip.m4a"},
-    {song: "Maybe It's Time", artist: "Bradley Cooper", played: false, audioLink: "https://www.youtube.com/watch?v=RdljoTFMhO4"}
-        ],
+      songsAndArtists: [{
+          song: "Lucid Dream",
+          artist: "Owl City",
+          played: false,
+          audioLink: "https://www.youtube.com/watch?v=RMaLi0xsEWY"
+        },
+        {
+          song: "Maybe It's Time",
+          artist: "Bradley Cooper",
+          played: false,
+          audioLink: "https://www.youtube.com/watch?v=RdljoTFMhO4"
+        }
+      ],
 
-        displaySongsAndArtists: function () {
-          if (this.songsAndArtists.length === 0) {
-            console.log('Your playlist is empty!');
+      displaySongsAndArtists: function () {
+        if (this.songsAndArtists.length === 0) {
+          console.log('Your playlist is empty!');
+        } else {
+          console.log('My Playlist:');
+          for (let i = 0; i < this.songsAndArtists.length; i++) {
+           
+            if (this.songsAndArtists[i].played === true) {
+              console.log('[=====]', this.songsAndArtists[i].song + ' by ' + this.songsAndArtists[i].artist);
+            } else {
+              console.log('[     ]', this.songsAndArtists[i].song + ' by ' + this.songsAndArtists[i].artist);
             }
-            else {
-              console.log('My Playlist:');
-              for (let i = 0; i < this.songsAndArtists.length; i++) {
-                console.log(this.songsAndArtists[i].song + ' by ' + this.songsAndArtists[i].artist);
-              }
-            }
-          },
+          }
+        }
+      },
 
-          addSongAndArtist: function (newSong, newArtist, linkToAudio) {
-              this.songsAndArtists.push({
-                song: newSong,
-                artist: newArtist,
-                played: false,
-                audioLink: linkToAudio
-              });
-              this.displaySongsAndArtists();
-            },
-            changeSongAndArtist: function (position,
-              newSong,
-              newArtist,
-              audioLink) {
-              this.songsAndArtists[position].song = newSong;
-              this.songsAndArtists[position].artist = newArtist;
-              this.songsAndArtists[position].audioLink = audioLink;
-              this.displaySongsAndArtists();
-            },
+      addSongAndArtist: function (newSong, newArtist, linkToAudio) {
+        this.songsAndArtists.push({
+          song: newSong,
+          artist: newArtist,
+          played: false,
+          audioLink: linkToAudio
+        });
+        this.displaySongsAndArtists();
+      },
+      changeSongAndArtist: function (position,
+        newSong,
+        newArtist,
+        audioLink) {
+        this.songsAndArtists[position].song = newSong;
+        this.songsAndArtists[position].artist = newArtist;
+        this.songsAndArtists[position].audioLink = audioLink;
+        this.displaySongsAndArtists();
+      },
 
-            deleteSongAndArtist: function (position) {
-              this.songsAndArtists.splice(position, 1);
-              this.displaySongsAndArtists();
-            },
+      deleteSongAndArtist: function (position) {
+        this.songsAndArtists.splice(position, 1);
+        this.displaySongsAndArtists();
+      },
 
-            togglePlayed: function (position) {
-              var song = this.songsAndArtists[position];
-              song.played = !song.played;
-              this.displaySongsAndArtists();
-            }
-        };
+      togglePlayed: function (position) {
+        var song = this.songsAndArtists[position];
+        song.played = !song.played;
+        this.displaySongsAndArtists();
+      }
+    };
   </script>
 </body>
 
