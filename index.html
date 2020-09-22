@@ -50,6 +50,30 @@
         var song = this.songs[position];
         song.played = !song.played;
         this.displaySongs();
+      },
+      toggleAll: function () {
+        let totalSongs = this.songs.length;
+        let playedSongs = 0;
+
+        // determine the number of played songs:
+        for (let i = 0; i < totalSongs; i++) {
+          if (this.songs[i].played === true) {
+            playedSongs++;
+          }
+        }
+        // if all songs are played set them to unplayed:
+        if (playedSongs === totalSongs) {
+          // reset all the songs to unplayed:
+          for (let i = 0; i < totalSongs; i++) {
+            this.songs[i].played = false;
+          }
+        } else {
+          // if some songs are played set all songs to played:
+          for (let i = 0; i < totalSongs; i++) {
+            this.songs[i].played = true;
+          }
+        }
+        this.displaySongs();
       }
     };
 
@@ -74,7 +98,7 @@
         } else {
           console.log('My Playlist:');
           for (let i = 0; i < this.songsAndArtists.length; i++) {
-           
+
             if (this.songsAndArtists[i].played === true) {
               console.log('[=====]', this.songsAndArtists[i].song + ' by ' + this.songsAndArtists[i].artist);
             } else {
@@ -111,6 +135,29 @@
       togglePlayed: function (position) {
         var song = this.songsAndArtists[position];
         song.played = !song.played;
+        this.displaySongsAndArtists();
+      },
+      toggleAll: function () {
+        let totalSongs = this.songsAndArtists.length;
+        let playedSongs = 0;
+
+        // determine the number of playedSongs:
+        for (let i = 0; i < totalSongs; i++) {
+          if (this.songsAndArtists[i].played === true) {
+            playedSongs++;
+          }
+        }
+
+        // compare playedSongs to totalSongs:
+        if (playedSongs === totalSongs) {
+          for (let i = 0; i < totalSongs; i++) {
+            this.songsAndArtists[i].played = false;
+          }
+        } else {
+          for (let i = 0; i < totalSongs; i++) {
+            this.songsAndArtists[i].played = true;
+          }
+        }
         this.displaySongsAndArtists();
       }
     };
