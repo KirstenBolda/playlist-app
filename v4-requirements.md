@@ -221,7 +221,7 @@ playlist.addSongAndArtist('Lucid Dream', 'Owl City', 'https://www.youtube.com/wa
 My Playlist:
   0: {song: "Lucid Dream", artist: "Owl City", played: false, audioLink: "https://www.youtube.com/watch?v=RMaLi0xsEWY"}
 
-playlist.addSongAndArtist('The Trip', 'Still Corners', '/Users/kirstenbolda/Music/Music/Media.localized/Still Corners/Strange Pleasures (Bonus Track Version)/01 The Trip.m4a' )
+playlist.addSongAndArtist('The Trip', 'Still Corners', '/Users/xxxxxxxxxx/Music/Music/Media.localized/Still Corners/Strange Pleasures (Bonus Track Version)/01 The Trip.m4a' )
 // returns:
 My Playlist:
   (2) [{…}, {…}]
@@ -387,15 +387,15 @@ var playlist = {
 // add songs
 playlist.addSongAndArtist('Lucid Dream', 'Owl City', 'https://www.youtube.com/watch?v=RMaLi0xsEWY')
 
-playlist.addSongAndArtist('The Trip', 'Still Corners', '/Users/kirstenbolda/Music/Music/Media.localized/Still Corners/Strange Pleasures (Bonus Track Version)/01 The Trip.m4a' )
+playlist.addSongAndArtist('The Trip', 'Still Corners', '/Users/xxxxxxxxxx/Music/Music/Media.localized/Still Corners/Strange Pleasures (Bonus Track Version)/01 The Trip.m4a' )
 
 playlist.addSongAndArtist( 'Maybe It/s Time', 'Bradley Cooper', 'https://www.youtube.com/watch?v=RdljoTFMhO4' )
 // change the first song:
-playlist.changeSongAndArtist(0, 'Trust the Sun', 'Elbow', '/Users/kirstenbolda/Music/Music/Media.localized/Elbow/Little Fictions/03 Trust the Sun.m4a');
+playlist.changeSongAndArtist(0, 'Trust the Sun', 'Elbow', '/Users/xxxxxxxxxx/Music/Music/Media.localized/Elbow/Little Fictions/03 Trust the Sun.m4a');
 // returns:
 My Playlist:
-    0: {song: "Trust the Sun", artist: "Elbow", played: false, audioLink: "/Users/kirstenbolda/Music/Music/Media.localized/Elbow/Little Fictions/03 Trust the Sun.m4a"}
-    1: {song: "The Trip", artist: "Still Corners", played: false, audioLink: "/Users/kirstenbolda/Music/Music/Media.localized/St…e Pleasures (Bonus Track Version)/01 The Trip.m4a"}
+    0: {song: "Trust the Sun", artist: "Elbow", played: false, audioLink: "/Users/xxxxxxxxxx/Music/Music/Media.localized/Elbow/Little Fictions/03 Trust the Sun.m4a"}
+    1: {song: "The Trip", artist: "Still Corners", played: false, audioLink: "/Users/xxxxxxxxxxx/Music/Music/Media.localized/St…e Pleasures (Bonus Track Version)/01 The Trip.m4a"}
     2: {song: "Maybe It/s Time", artist: "Bradley Cooper", played: false, audioLink: "https://www.youtube.com/watch?v=RdljoTFMhO4"}
 ```
 ![dots separator](./img/dots-separator.svg)
@@ -553,8 +553,7 @@ playlist.togglePlayed(1);
 // returns:
 My Playlist:
 0: {song: "Lucid Dream", artist: "Owl City", played: false, audioLink: "https://www.youtube.com/watch?v=RMaLi0xsEWY"}
-1: {song: "The Trip", artist: "Still Corners", played: true, audioLink: "/Users/xxxxxxxxxxxx/Music/Music/Media.localized/St…e Pleasures (Bonus Track Version)/01 The Trip.m4a"}
-2: {song: "Maybe It/s Time", artist: "Bradley Cooper", played: false, audioLink: "https://www.youtube.com/watch?v=RdljoTFMhO4"}
+1: {song: "Maybe It/s Time", artist: "Bradley Cooper", played: false, audioLink: "https://www.youtube.com/watch?v=RdljoTFMhO4"}
 ```
 
 
