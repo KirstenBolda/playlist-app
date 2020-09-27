@@ -5,163 +5,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css" type="text/css">
+  
   <title>My Playlist</title>
 </head>
 
 <body>
-  Playlist under construction!
-  <script>
-    var songList = {
-      songs: [],
+  <h1>Make Your Own Playlist</h1>
 
-      displaySongs: function () {
-        if (this.songs.length === 0) {
-          console.log('Your song list is empty!')
-        } else {
-          console.log('My Playlist:');
-          for (let i = 0; i < this.songs.length; i++) {
-            // console.log(this.songs[i].songName);
+  <h2>Songlist</h2>
 
-            if (this.songs[i].played === true) {
-              console.log('(x)', this.songs[i].songName);
-            } else {
-              console.log('( )', this.songs[i].songName);
-            }
-          }
-        }
-      },
+  <button id = "displaySongsButton">Display songs</button>
+  <button id = "toggleSongsButton">Toggle All songs</button>
+  <h2>Playlist</h2>
+  
+  <button id= "displayPlaylistButton">Display Playlist</button>
+  <button id = "togglePlaylistButton">Toggle Playlist Songs</button>
 
-      addSong: function (songName) {
-        this.songs.push({
-          songName: songName,
-          played: false
-        });
-        this.displaySongs();
-      },
-      changeSong: function (position, newSong) {
-        this.songs[position].songName = newSong;
-        this.displaySongs();
-      },
-      deleteSong: function (position) {
-        this.songs.splice(position, 1);
-        this.displaySongs();
-      },
-      togglePlayed: function (position) {
-        var song = this.songs[position];
-        song.played = !song.played;
-        this.displaySongs();
-      },
-      toggleAll: function () {
-        let totalSongs = this.songs.length;
-        let playedSongs = 0;
-
-        // determine the number of played songs:
-        for (let i = 0; i < totalSongs; i++) {
-          if (this.songs[i].played === true) {
-            playedSongs++;
-          }
-        }
-        // if all songs are played set them to unplayed:
-        if (playedSongs === totalSongs) {
-          // reset all the songs to unplayed:
-          for (let i = 0; i < totalSongs; i++) {
-            this.songs[i].played = false;
-          }
-        } else {
-          // if some songs are played set all songs to played:
-          for (let i = 0; i < totalSongs; i++) {
-            this.songs[i].played = true;
-          }
-        }
-        this.displaySongs();
-      }
-    };
-
-    var playlist = {
-      songsAndArtists: [{
-          song: "Lucid Dream",
-          artist: "Owl City",
-          played: false,
-          audioLink: "https://www.youtube.com/watch?v=RMaLi0xsEWY"
-        },
-        {
-          song: "Maybe It's Time",
-          artist: "Bradley Cooper",
-          played: false,
-          audioLink: "https://www.youtube.com/watch?v=RdljoTFMhO4"
-        }
-      ],
-
-      displaySongsAndArtists: function () {
-        if (this.songsAndArtists.length === 0) {
-          console.log('Your playlist is empty!');
-        } else {
-          console.log('My Playlist:');
-          for (let i = 0; i < this.songsAndArtists.length; i++) {
-
-            if (this.songsAndArtists[i].played === true) {
-              console.log('[=====]', this.songsAndArtists[i].song + ' by ' + this.songsAndArtists[i].artist);
-            } else {
-              console.log('[     ]', this.songsAndArtists[i].song + ' by ' + this.songsAndArtists[i].artist);
-            }
-          }
-        }
-      },
-
-      addSongAndArtist: function (newSong, newArtist, linkToAudio) {
-        this.songsAndArtists.push({
-          song: newSong,
-          artist: newArtist,
-          played: false,
-          audioLink: linkToAudio
-        });
-        this.displaySongsAndArtists();
-      },
-      changeSongAndArtist: function (position,
-        newSong,
-        newArtist,
-        audioLink) {
-        this.songsAndArtists[position].song = newSong;
-        this.songsAndArtists[position].artist = newArtist;
-        this.songsAndArtists[position].audioLink = audioLink;
-        this.displaySongsAndArtists();
-      },
-
-      deleteSongAndArtist: function (position) {
-        this.songsAndArtists.splice(position, 1);
-        this.displaySongsAndArtists();
-      },
-
-      togglePlayed: function (position) {
-        var song = this.songsAndArtists[position];
-        song.played = !song.played;
-        this.displaySongsAndArtists();
-      },
-      toggleAll: function () {
-        let totalSongs = this.songsAndArtists.length;
-        let playedSongs = 0;
-
-        // determine the number of playedSongs:
-        for (let i = 0; i < totalSongs; i++) {
-          if (this.songsAndArtists[i].played === true) {
-            playedSongs++;
-          }
-        }
-
-        // compare playedSongs to totalSongs:
-        if (playedSongs === totalSongs) {
-          for (let i = 0; i < totalSongs; i++) {
-            this.songsAndArtists[i].played = false;
-          }
-        } else {
-          for (let i = 0; i < totalSongs; i++) {
-            this.songsAndArtists[i].played = true;
-          }
-        }
-        this.displaySongsAndArtists();
-      }
-    };
-  </script>
+  
+  <script src="./script.js"></script>
 </body>
 
 </html>
