@@ -64,13 +64,19 @@ var songList = {
   }
 };
 
-// access the Display Songs button
-let displaySongsButton = document.getElementById('displaySongsButton'); 
+// access the Display and Toggle Songs buttons
+let displaySongsButton = document.getElementById('displaySongsButton');
+let toggleSongsButton = document.getElementById('toggleSongsButton');
 
-// run display Songs method
-displaySongsButton.addEventListener('click', function() {
-songList.displaySongs();
+// run display and toggle Songs methods
+displaySongsButton.addEventListener('click', function () {
+  songList.displaySongs();
 });
+toggleSongsButton.addEventListener('click', function () {
+  songList.toggleAll();
+});
+
+
 
 var playlist = {
   songsAndArtists: [{
@@ -158,11 +164,11 @@ var playlist = {
 };
 
 let displayPlaylistButton = document.getElementById('displayPlaylistButton');
+let togglePlaylistButton = document.getElementById('togglePlaylistButton');
 
-
-displayPlaylistButton.addEventListener('click', function() {
+displayPlaylistButton.addEventListener('click', function () {
   playlist.displaySongsAndArtists();
-  });
-  
-
-
+});
+togglePlaylistButton.addEventListener('click', function () {
+  playlist.toggleAll();
+});

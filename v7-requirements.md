@@ -20,9 +20,9 @@
 ## Click button to toggle played function
 [Code for toggle played](#toggle)
 
-#### [ ] Clicking "Toggle Played" should run songlist.toggleAll
+#### [x] Clicking "Toggle Played" should run songlist.toggleAll
 
-#### [ ] Clicking "Toggle Played" should run playlist.toggleAll
+#### [x] Clicking "Toggle Played" should run playlist.toggleAll
 
 ![dots separator](./img/dots-separator.svg)
 
@@ -87,7 +87,6 @@ Looks like this:
 
   ```
   <button id = "displaySongsButton">Display songs</button>
-  <button id = "toggleSongsButton">Toggle All songs</button>
   ```
   - create a variable to represent the button
 
@@ -128,6 +127,55 @@ playlist.displaySongsAndArtists();
 ```
 ![dots separator](./img/dots-separator.svg)
 
+## Toggle
+
+#### Clicking "Toggle Played" should run songlist.toggleAll
 
 
+##### Steps:
+1. Get access to the toggle all songs button
+  - give the button an id: toggleSongsButton
 
+  ```
+  <button id = "toggleSongsButton">Toggle All songs</button>
+  ```
+  - create a variable to represent the button
+
+```
+let toggleSongsButton = document.getElementById('toggleSongsButton');
+```
+2. Run the displaySongs method when the displaySongsButton is clicked:
+  - add an event listener method to the button's variable
+
+```
+  toggleSongsButton.addEventListener('click', function() {
+songList.toggleAll();
+});
+```
+
+#### Clicking "Toggle Played" should run playlist.toggleAll
+
+##### Steps:
+1. Get access to the toggle playlist button
+  - give the button an id: displayPlaylistButton
+
+```
+<button id= "togglePlaylistButton">Display Playlist</button>
+```
+  - create a variable to represent the button
+
+```
+let togglePlaylistButton = document.getElementById('togglePlaylistButton');
+```
+
+2. Run the displayPlaylist method when the displayPlaylistButton is clicked:
+  - add an event listener method to the button's variable
+
+```
+  togglePlaylistButton.addEventListener('click', function() {
+playlist.toggleAll();
+});
+```
+![dots separator](./img/dots-separator.svg)
+
+## ~~~~~  Version 7 Complete ~~~~~
