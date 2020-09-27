@@ -94,6 +94,7 @@ var playlist = {
   ],
 
   displaySongsAndArtists: function () {
+    debugger;
     if (this.songsAndArtists.length === 0) {
       console.log('Your playlist is empty!');
     } else {
