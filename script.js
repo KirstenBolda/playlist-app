@@ -64,19 +64,15 @@ var songList = {
   }
 };
 
-// access the Display and Toggle Songs buttons
-let displaySongsButton = document.getElementById('displaySongsButton');
-let toggleSongsButton = document.getElementById('toggleSongsButton');
 
-// run display and toggle Songs methods
-displaySongsButton.addEventListener('click', function () {
-  songList.displaySongs();
-});
-toggleSongsButton.addEventListener('click', function () {
-  songList.toggleAll();
-});
-
-
+var handlers = {
+  displaySongs: function () {
+    songList.displaySongs();
+  },
+  toggleAll: function () {
+    songList.toggleAll();
+  }
+}
 
 var playlist = {
   songsAndArtists: [{
@@ -94,7 +90,6 @@ var playlist = {
   ],
 
   displaySongsAndArtists: function () {
-    debugger;
     if (this.songsAndArtists.length === 0) {
       console.log('Your playlist is empty!');
     } else {
@@ -164,12 +159,11 @@ var playlist = {
   }
 };
 
-let displayPlaylistButton = document.getElementById('displayPlaylistButton');
-let togglePlaylistButton = document.getElementById('togglePlaylistButton');
-
-displayPlaylistButton.addEventListener('click', function () {
-  playlist.displaySongsAndArtists();
-});
-togglePlaylistButton.addEventListener('click', function () {
-  playlist.toggleAll();
-});
+var playlistHandlers = {
+  displaySongsAndArtists: function () {
+    playlist.displaySongsAndArtists();
+  },
+  toggleAll: function () {
+    playlist.toggleAll();
+  }
+};
