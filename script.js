@@ -69,6 +69,28 @@ var handlers = {
   displaySongs: function () {
     songList.displaySongs();
   },
+  addSong: function () {
+    var addSongTextInput = document.getElementById('addSongTextInput');
+    songList.addSong(addSongTextInput.value);
+    addSongTextInput.value = '';
+  },
+  changeSong: function () {
+    var changeSongPositionInput = document.getElementById('changeSongPositionInput');
+    var changeSongTextInput = document.getElementById('changeSongTextInput');
+    songList.changeSong(changeSongPositionInput.valueAsNumber, changeSongTextInput.value);
+    changeSongPositionInput.value = '';
+    changeSongTextInput.value = '';
+  },
+  deleteSong: function () {
+    var deleteSongPositionInput = document.getElementById('deleteSongPositionInput');
+    songList.deleteSong(deleteSongPositionInput.valueAsNumber);
+    deleteSongPositionInput.value = '';
+  },
+  togglePlayed: function () {
+    var togglePlayedPositionInput = document.getElementById('togglePlayedPositionInput');
+    songList.togglePlayed(togglePlayedPositionInput.valueAsNumber);
+    togglePlayedPositionInput.value = '';
+  },
   toggleAll: function () {
     songList.toggleAll();
   }
@@ -97,9 +119,9 @@ var playlist = {
       for (let i = 0; i < this.songsAndArtists.length; i++) {
 
         if (this.songsAndArtists[i].played === true) {
-          console.log('[=====]', this.songsAndArtists[i].song + ' by ' + this.songsAndArtists[i].artist);
+          console.log('[=====]', this.songsAndArtists[i].song + ' by ' + this.songsAndArtists[i].artist + ' at ' + this.songsAndArtists[i].audioLink);
         } else {
-          console.log('[     ]', this.songsAndArtists[i].song + ' by ' + this.songsAndArtists[i].artist);
+          console.log('[     ]', this.songsAndArtists[i].song + ' by ' + this.songsAndArtists[i].artist  + ' at ' + this.songsAndArtists[i].audioLink);
         }
       }
     }
@@ -163,7 +185,43 @@ var playlistHandlers = {
   displaySongsAndArtists: function () {
     playlist.displaySongsAndArtists();
   },
-  toggleAll: function () {
-    playlist.toggleAll();
-  }
+  addSongAndArtist: function () {
+   // variables
+    var addSongName = document.getElementById('addSongName');
+    var addArtistName = document.getElementById('addArtistName');
+    var addLinkUrl = document.getElementById('addLinkUrl');
+   // call the method from the playlist object
+    playlist.addSongAndArtist(addSongName.value, addArtistName.value, addLinkUrl.value);
+   // clear the inputs after entering the new data
+    addSongName.value = '';
+    addArtistName.value = '';
+    addLinkUrl.value = '';
+  },
+  changeSongAndArtist: function () {
+    // variables
+      var changeSongPosInput = document.getElementById('changeSongPosInput');
+      var changeSongNameInput = document.getElementById('changeSongNameInput');
+      var changeArtistNameInput = document.getElementById('changeArtistNameInput');
+      var changeLinkTextInput = document.getElementById('changeLinkTextInput');
+    // call the method from playlist object
+      playlist.changeSongAndArtist(changeSongPosInput.valueAsNumber, changeSongNameInput.value, changeArtistNameInput.value, changeLinkTextInput.value);
+    // clear the inputs after entering the new data
+      changeSongPosInput.value = '';
+      changeSongNameInput.value = '';
+      changeArtistNameInput.value = '';
+      changeLinkTextInput.value = '';
+    },
+    deleteSongAndArtist: function () {
+      var deleteSongPosInput = document.getElementById('deleteSongPosInput');
+      playlist.deleteSongAndArtist(deleteSongPosInput.valueAsNumber);
+      deleteSongPosInput.value = '';
+    },
+    togglePlayed: function () {
+      var togglePlayedPosInput = document.getElementById('togglePlayedPosInput');
+      playlist.togglePlayed(togglePlayedPosInput.valueAsNumber);
+      togglePlayedPosInput.value = '';
+    },
+    toggleAll: function () {
+      playlist.toggleAll();
+    }
 };
