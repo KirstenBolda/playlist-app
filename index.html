@@ -18,14 +18,13 @@
       <h2>Songlist</h2>
 
       <section id="buttons">
+        <div>
+          <input id="addSongTextInput" type="text">
+          <button onclick="handlers.addSong()">Add Song</button>
 
-        <button onclick="handlers.displaySongs()">Display songs</button>
+        <!-- <button onclick="handlers.displaySongs()">Display songs</button> -->
         <button onclick="handlers.toggleAll()">Toggle All songs</button>
 
-        <div>
-          <button onclick="handlers.addSong()">Add Song</button>
-          <input id="addSongTextInput" type="text">
-        </div>
 
         <div>
           <button onclick="handlers.changeSong()">Change Song</button>
@@ -44,6 +43,11 @@
           <input id="togglePlayedPositionInput" type="number" min=0>
         </div>
 
+      </section>
+      <section>
+        <ul class = "viewSonglist">
+
+        </ul>
       </section>
     </section>
 
@@ -103,10 +107,16 @@
           <input id="togglePlayedPosInput" type="number" min=0>
         </div>
       </section>
+
+      <section>
+        <ol class="viewPlaylist">
+
+        </ol>
+      </section>
     </section>
   </section>
 
-  <p class="version">Version 8</p>
+  <p class="version">Version 9</p>
 
   <script src="./script.js"></script>
 </body>
