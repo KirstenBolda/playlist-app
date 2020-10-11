@@ -29,18 +29,24 @@
         <div>
           <button onclick="handlers.changeSong()">Change Song</button>
           <br>
-          <input id="changeSongPositionInput" type="number" min = 0>
+          <p>
+            <input id="changeSongPositionInput" type="number" min = 0>
           <input id="changeSongTextInput" type="text">
+          </p>
         </div>
 
         <div>
           <button onclick="handlers.deleteSong()">Delete Song</button>
-          <input id="deleteSongPositionInput" type="number" min = 0>
+          <p>
+            <input id="deleteSongPositionInput" type="number" min = 0>
+          </p>
         </div>
 
         <div>
           <button onclick="handlers.togglePlayed()">Toggle Played</button>
-          <input id="togglePlayedPositionInput" type="number" min=0>
+          <p>
+            <input id="togglePlayedPositionInput" type="number" min=0>
+          </p>
         </div>
 
       </section>
@@ -67,44 +73,60 @@
         <div class="panel">
           <button onclick="playlistHandlers.addSongAndArtist()">Add Song Info</button>
           <br>
-          <label for="addSongName">Song Name:</label><input id="addSongName" type="text">
+         <p><label for="addSongName">Song Name: </label><input id="addSongName" type="text">
           <br>
-          <label for="addArtistName">Artist Name:</label><input id="addArtistName" type="text">
+        </p> 
+        <p>
+          <label for="addArtistName">Artist Name: </label><input id="addArtistName" type="text">
           <br>
-          <label for="addLinkUrl">Link to Audio:</label><input id="addLinkUrl" type="text">
+        </p> 
+        <p>
+          <label for="addLinkUrl">Link to Audio: </label><input id="addLinkUrl" type="text">
+        </p> 
         </div>
 
         <div class="panel">
           <button onclick="playlistHandlers.changeSongAndArtist()">Change Song Info</button>
           <br>
+         <p>
           <label for="changeSongPosInput">Song Position:</label>
           <input id="changeSongPosInput" type="number" min = 0>
           <br>
-          <label for="changeSongNameInput">Song Name:</label>
+        </p>
+       
+          <p> <label for="changeSongNameInput">Song Name: </label>
           <input id="changeSongNameInput" type="text">
           <br>
-          
-          <label for="changeArtistNameInput">Artist Name:</label>
+        </p>
+        <p>
+          <label for="changeArtistNameInput">Artist Name: </label>
           <input id="changeArtistNameInput" type="text">
           <br>
-          
-          <label for="changeLinkTextInput">Link URL:</label>
+        </p>
+        <p>
+          <label for="changeLinkTextInput">Link URL: </label>
           <input id="changeLinkTextInput" type="text">
+
+        </p>
 
         </div>
 
         <div class="panel">
           <button onclick="playlistHandlers.deleteSongAndArtist()">Delete Song</button>
           <br>
-          <label for="deleteSongPosInput">Song Position:</label>
-          <input id="deleteSongPosInput" type="number" min = 0>
+          <p>
+            <label for="deleteSongPosInput">Song Position:</label>
+            <input id="deleteSongPosInput" type="number" min = 0>
+          </p>
         </div>
 
         <div class="panel">
           <button onclick="playlistHandlers.togglePlayed()">Toggle Played</button>
           <br>
-          <label for="togglePlayedPosInput">Song Position:</label>
-          <input id="togglePlayedPosInput" type="number" min=0>
+          <p>
+            <label for="togglePlayedPosInput">Song Position:</label>
+           <input id="togglePlayedPosInput" type="number" min=0>
+          </p>
         </div>
       </section>
 
