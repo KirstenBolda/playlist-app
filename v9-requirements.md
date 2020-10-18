@@ -18,9 +18,15 @@
 
 [Each List Element should show whether the song was played](#played)
 
-#### [ ] Display the played status of each song
+#### [x] Display the played status of each song
 
-#### [ ] Display the played status of the song alongside the artist and the url
+#### [x] Display the played status of the song alongside the artist and the url
+
+[Escape the Console](#escape)
+
+#### [ ] Perform all manipulations of the song list from the DOM
+
+#### [ ] Perform all manipulations of the playlist from the DOM
 
 ![dots separator](./img/dots-separator.svg)
 
@@ -33,7 +39,8 @@
   - create a list item variable
 
 ```
-var songLi = document.createElement('li');
+
+
 songLi
 // returns
 <li></li>
@@ -188,7 +195,7 @@ var viewPlaylist = {
         songTextWithStatus = '( ) ' + song.songName;
       }
 ```
-- create variable for song to access the each song:
+- create variable for song to access each song:
   - `var song = songList.songs[i];`
   - this variable is optional but saves time and makes code easier to read
 - set .textContent to result of conditional
@@ -219,3 +226,66 @@ var view = {
 ```
 
 #### Display the played status of the song alongside the artist and the url
+
+- create a variable that will change based on the played / not played status
+
+`var playlistItemStatus = '';`
+
+- use `if` / `else` to determine whether song was played
+```
+  if (songsAndArtistsDisplay.played === true) {
+        playlistItemStatus = '[====]' + playlist.songsAndArtists[i].song + ' by ' + playlist.songsAndArtists[i].artist;
+      } else {
+        playlistItemStatus = '[......]' + playlist.songsAndArtists[i].song + ' by ' + playlist.songsAndArtists[i].artist;
+      }
+```
+- create variable for song to access the each song:
+
+`var songsAndArtistsDisplay = playlist.songsAndArtists[i];`
+
+- set .textContent to result of conditional
+
+`playlistLi.textContent = playlistItemStatus;`
+
+- `playlist` object with played status conditional:
+
+```
+var viewPlaylist = {
+  displaySongsAndArtists: function () {
+    var songsAndArtistsOl = document.querySelector('.viewPlaylist');
+    songsAndArtistsOl.innerHTML = '';
+    for (var i = 0; i < playlist.songsAndArtists.length; i++) {
+      var playlistLi = document.createElement('li');
+      var songsAndArtistsDisplay = playlist.songsAndArtists[i];
+      var playlistItemStatus = '';
+
+      if (songsAndArtistsDisplay.played === true) {
+        playlistItemStatus = '[====]' + playlist.songsAndArtists[i].song + ' by ' + playlist.songsAndArtists[i].artist;
+      } else {
+        playlistItemStatus = '[......]' + playlist.songsAndArtists[i].song + ' by ' + playlist.songsAndArtists[i].artist;
+      }
+
+      playlistLi.textContent = playlistItemStatus;
+      songsAndArtistsOl.appendChild(playlistLi);
+    }
+  }
+};
+```
+
+![dots separator](./img/dots-separator.svg)
+## Escape
+#### Perform all functions in the DOM
+
+For the songlist:
+
+- run `view.displaySongs` at the end of every handler method
+
+- delete the `songlist.displaySongs` function
+
+- delete `this.displaySongs()` at the end of every method in the songs object
+
+For the playlist:
+- run `viewPlaylist.displaySongsAndArtists()` at the end of every handler method
+
+- delete the `playlist.displaySongsAndArtists()` function
+
