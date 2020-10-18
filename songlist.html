@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css" type="text/css">
+
+  <title>My Playlist</title>
+</head>
+
+<body>
+  <section class="screen">
+    <h1>Make Your Own Playlist</h1>
+    <section class="playlist">
+      <!-- songlist is the straightforward implementation of each concept, using a single string per entry -->
+      <h2>Songlist</h2>
+
+      <section id="buttons">
+        <div>
+          <input id="addSongTextInput" type="text">
+          <button onclick="handlers.addSong()">Add Song</button>
+
+          <!-- <button onclick="handlers.displaySongs()">Display songs</button> -->
+          <button onclick="handlers.toggleAll()">Toggle All songs</button>
+
+          <div>
+            <button onclick="handlers.changeSong()">Change Song</button>
+            <br>
+            <p>
+              <input id="changeSongPositionInput" type="number" min=0>
+              <input id="changeSongTextInput" type="text">
+            </p>
+          </div>
+
+          <div>
+            <button onclick="handlers.deleteSong()">Delete Song</button>
+            <p>
+              <input id="deleteSongPositionInput" type="number" min=0>
+            </p>
+          </div>
+
+          <div>
+            <button onclick="handlers.togglePlayed()">Toggle Played</button>
+            <p>
+              <input id="togglePlayedPositionInput" type="number" min=0>
+            </p>
+          </div>
+
+      </section>
+      <section>
+        <ul class="viewSonglist">
+
+        </ul>
+      </section>
+    </section>
+
+    <a href="./index.html"><button>Click here to return to the full playlist version</button></a>  
+  <p class="version">Version 9.1</p>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
