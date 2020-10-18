@@ -10,51 +10,9 @@
 </head>
 
 <body>
+  <h1>Make Your Own Playlist</h1>
   <section class="screen">
-    <!-- <h1>Make Your Own Playlist</h1> -->
-    <section class="playlist">
-
-      <!-- songlist is the straightforward implementation of each concept, using a single string per entry -->
-      <h2>Songlist</h2>
-
-      <section id="buttons">
-        <div>
-          <input id="addSongTextInput" type="text">
-          <button onclick="handlers.addSong()">Add Song</button>
-
-          <!-- <button onclick="handlers.displaySongs()">Display songs</button> -->
-          <button onclick="handlers.toggleAll()">Toggle All songs</button>
-
-          <div>
-            <button onclick="handlers.changeSong()">Change Song</button>
-            <br>
-            <p>
-              <input id="changeSongPositionInput" type="number" min=0>
-              <input id="changeSongTextInput" type="text">
-            </p>
-          </div>
-
-          <div>
-            <button onclick="handlers.deleteSong()">Delete Song</button>
-            <p>
-              <input id="deleteSongPositionInput" type="number" min=0>
-            </p>
-          </div>
-
-          <div>
-            <button onclick="handlers.togglePlayed()">Toggle Played</button>
-            <p>
-              <input id="togglePlayedPositionInput" type="number" min=0>
-            </p>
-          </div>
-
-      </section>
-      <section>
-        <ul class="viewSonglist">
-
-        </ul>
-      </section>
-    </section>
+    
 
     <!-- playlist is the fully realized implementation, using an object to represent each song entry -->
     <section class="playlist">
@@ -82,7 +40,7 @@
             <label for="addLinkUrl">Link to Audio: </label><input id="addLinkUrl" type="text">
           </p>
         </div>
-        
+
         <div class="panel">
           <button onclick="playlistHandlers.changeSongAndArtist()">Change Song Info</button>
           <br>
@@ -127,15 +85,21 @@
           </p>
         </div>
       </section>
-      <section>
+    </section>
+    <section class= "playlist">
+      <div class="panel">
         <ol class="viewPlaylist">
-
+    
         </ol>
-      </section>
+      </div>
     </section>
   </section>
+  
+  </section>
+ 
 
-  <p class="version">Version 9</p>
+  <p class="version">Version 9.1</p>
+  <a href="./songlist.html"><button>Click here for the Songs Only version</button></a>
 
   <script src="./script.js"></script>
 </body>
