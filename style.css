@@ -15,6 +15,7 @@ p {
 h1 {
 text-align: center;
 font-size: 2em;
+font-family: 'Permanent Marker', cursive;
 }
 
 .screen {
@@ -98,4 +99,9 @@ button:disabled {
 .version {
   text-align: center;
   font-size: 0.8em;
+}
+
+li {
+  margin: 2%;
+  font-family: 'Permanent Marker', cursive;
 }

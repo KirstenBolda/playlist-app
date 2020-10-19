@@ -1,113 +1,3 @@
-// ************SONGLIST************** //
-
-var songList = {
-  songs: [],
-
-  addSong: function (songName) {
-    this.songs.push({
-      songName: songName,
-      played: false
-    });
-    //this.displaySongs();
-  },
-  changeSong: function (position, newSong) {
-    this.songs[position].songName = newSong;
-    //this.displaySongs();
-  },
-  deleteSong: function (position) {
-    this.songs.splice(position, 1);
-    //this.displaySongs();
-  },
-  togglePlayed: function (position) {
-    var song = this.songs[position];
-    song.played = !song.played;
-    //this.displaySongs();
-  },
-  toggleAll: function () {
-    let totalSongs = this.songs.length;
-    let playedSongs = 0;
-
-    // determine the number of played songs:
-    for (let i = 0; i < totalSongs; i++) {
-      if (this.songs[i].played === true) {
-        playedSongs++;
-      }
-    }
-    // if all songs are played set them to unplayed:
-    if (playedSongs === totalSongs) {
-      // reset all the songs to unplayed:
-      for (let i = 0; i < totalSongs; i++) {
-        this.songs[i].played = false;
-      }
-    } else {
-      // if some songs are played set all songs to played:
-      for (let i = 0; i < totalSongs; i++) {
-        this.songs[i].played = true;
-      }
-    }
-    //this.displaySongs();
-  }
-};
-
-
-var handlers = {
-  // displaySongs: function () {
-  //   songList.displaySongs();
-  // },
-  addSong: function () {
-    var addSongTextInput = document.getElementById('addSongTextInput');
-    songList.addSong(addSongTextInput.value);
-    addSongTextInput.value = '';
-    view.displaySongs();
-  },
-  changeSong: function () {
-    var changeSongPositionInput = document.getElementById('changeSongPositionInput');
-    var changeSongTextInput = document.getElementById('changeSongTextInput');
-    songList.changeSong(changeSongPositionInput.valueAsNumber, changeSongTextInput.value);
-    changeSongPositionInput.value = '';
-    changeSongTextInput.value = '';
-    view.displaySongs();
-  },
-  deleteSong: function () {
-    var deleteSongPositionInput = document.getElementById('deleteSongPositionInput');
-    songList.deleteSong(deleteSongPositionInput.valueAsNumber);
-    deleteSongPositionInput.value = '';
-    view.displaySongs();
-  },
-  togglePlayed: function () {
-    var togglePlayedPositionInput = document.getElementById('togglePlayedPositionInput');
-    songList.togglePlayed(togglePlayedPositionInput.valueAsNumber);
-    togglePlayedPositionInput.value = '';
-    view.displaySongs();
-  },
-  toggleAll: function () {
-    songList.toggleAll();
-    view.displaySongs();
-  }
-}
-
-var view = {
-  displaySongs: function () {
-    var songsUl = document.querySelector('.viewSonglist');
-    songsUl.innerHTML = '';
-    for (var i = 0; i < songList.songs.length; i++) {
-      var songLi = document.createElement('li');
-      var song = songList.songs[i];
-      var songTextWithStatus = '';
-
-      if (song.played === true) {
-          songTextWithStatus = '(x) ' + song.songName;
-      } else {
-        songTextWithStatus = '( ) ' + song.songName;
-      }
-
-      songLi.textContent = songTextWithStatus;
-      // songLi.textContent = songList.songs[i].songName;
-      songsUl.appendChild(songLi);
-    }
-  }
-}
-
 // ************PLAYLIST************** //
 
 var playlist = {
@@ -122,6 +12,16 @@ var playlist = {
       artist: "Bradley Cooper",
       played: false,
       audioLink: "https://www.youtube.com/watch?v=RdljoTFMhO4"
+    },
+    {song: "Trust the Sun", 
+    artist: "Elbow", 
+    played: false, 
+    audioLink: "https://www.youtube.com/watch?v=Yk-68yGxM2Y" 
+    },
+    {song:"Witches", 
+    artist: "Low", 
+    played: false, 
+    audioLink: "https://www.youtube.com/watch?v=Grrsh7rGzv4"
     }
   ],
 // code for displaying songs in the console (not needed if displaying songs in the DOM)
@@ -246,6 +146,8 @@ var playlistHandlers = {
     }
 };
 
+// List of songs and artists without links displayed:
+
 var viewPlaylist = {
   displaySongsAndArtists: function () {
     var songsAndArtistsOl = document.querySelector('.viewPlaylist');
@@ -256,9 +158,9 @@ var viewPlaylist = {
       var playlistItemStatus = '';
 
       if (songsAndArtistsDisplay.played === true) {
-        playlistItemStatus = '[====] ' + playlist.songsAndArtists[i].song + ' by ' + playlist.songsAndArtists[i].artist + ' at ' + ' "' + playlist.songsAndArtists[i].audioLink + '" ';
+        playlistItemStatus = '[====] ' + playlist.songsAndArtists[i].song + ' by ' + playlist.songsAndArtists[i].artist;
       } else {
-        playlistItemStatus = '[......] ' + playlist.songsAndArtists[i].song + ' by ' + playlist.songsAndArtists[i].artist + ' at ' + ' "' + playlist.songsAndArtists[i].audioLink + '" ';
+        playlistItemStatus = '[......] ' + playlist.songsAndArtists[i].song + ' by ' + playlist.songsAndArtists[i].artist;
       }
 
       playlistLi.textContent = playlistItemStatus;
@@ -266,6 +168,30 @@ var viewPlaylist = {
     }
   }
 };
+
+// List of songs and artists with links displayed:
+
+// var viewPlaylist = {
+//   displaySongsAndArtists: function () {
+//     var songsAndArtistsOl = document.querySelector('.viewPlaylist');
+//     songsAndArtistsOl.innerHTML = '';
+//     for (var i = 0; i < playlist.songsAndArtists.length; i++) {
+//       var playlistLi = document.createElement('li');
+//       var songsAndArtistsDisplay = playlist.songsAndArtists[i];
+//       var playlistItemStatus = '';
+
+//       if (songsAndArtistsDisplay.played === true) {
+//         playlistItemStatus = '[====] ' + playlist.songsAndArtists[i].song + ' by ' + playlist.songsAndArtists[i].artist + ' at ' + ' "' + playlist.songsAndArtists[i].audioLink + '" ';
+//       } else {
+//         playlistItemStatus = '[......] ' + playlist.songsAndArtists[i].song + ' by ' + playlist.songsAndArtists[i].artist + ' at ' + ' "' + playlist.songsAndArtists[i].audioLink + '" ';
+//       }
+
+//       playlistLi.textContent = playlistItemStatus;
+//       songsAndArtistsOl.appendChild(playlistLi);
+//     }
+//   }
+// };
+
 
 // some work on adding buttons to link up the url
 
