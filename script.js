@@ -12,16 +12,6 @@ var playlist = {
       artist: "Bradley Cooper",
       played: false,
       audioLink: "https://www.youtube.com/watch?v=RdljoTFMhO4"
-    },
-    {song: "Trust the Sun", 
-    artist: "Elbow", 
-    played: false, 
-    audioLink: "https://www.youtube.com/watch?v=Yk-68yGxM2Y" 
-    },
-    {song:"Witches", 
-    artist: "Low", 
-    played: false, 
-    audioLink: "https://www.youtube.com/watch?v=Grrsh7rGzv4"
     }
   ],
 // code for displaying songs in the console (not needed if displaying songs in the DOM)
@@ -62,7 +52,7 @@ var playlist = {
 
   deleteSongAndArtist: function (position) {
     this.songsAndArtists.splice(position, 1);
-    this.displaySongsAndArtists();
+    //this.displaySongsAndArtists();
   },
 
   togglePlayed: function (position) {
