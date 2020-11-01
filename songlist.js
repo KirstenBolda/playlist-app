@@ -101,9 +101,29 @@ var view = {
         songTextWithStatus = '( ) ' + song.songName;
       }
 
+      songLi.id = i;
       songLi.textContent = songTextWithStatus;
-      // songLi.textContent = songList.songs[i].songName;
+      songLi.appendChild(this.createDeleteButton());
       songsUl.appendChild(songLi);
     }
+  },
+  createDeleteButton: function () {
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete Song';
+    deleteButton.className = 'deleteButton';
+    return deleteButton;
   }
-}
+};
+
+var songsUl = document.querySelector('ul');
+
+songsUl.addEventListener('click', function (event) {
+  // console.log(event.target.parentNode.id);
+  var elementClicked = event.target;
+
+  if (elementClicked.className === 'deleteButton') {
+    handlers.deleteSong(parseInt(elementClicked.parentNode.id));
+  }
+});
+
+

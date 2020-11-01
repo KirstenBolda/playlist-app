@@ -14,23 +14,6 @@ var playlist = {
       audioLink: "https://www.youtube.com/watch?v=RdljoTFMhO4"
     }
   ],
-// code for displaying songs in the console (not needed if displaying songs in the DOM)
-  // displaySongsAndArtists: function () {
-  //   if (this.songsAndArtists.length === 0) {
-  //     console.log('Your playlist is empty!');
-  //   } else {
-  //     console.log('My Playlist:');
-  //     for (let i = 0; i < this.songsAndArtists.length; i++) {
-
-  //       if (this.songsAndArtists[i].played === true) {
-  //         console.log('[=====]', this.songsAndArtists[i].song + ' by ' + this.songsAndArtists[i].artist + ' at ' + this.songsAndArtists[i].audioLink);
-  //       } else {
-  //         console.log('[     ]', this.songsAndArtists[i].song + ' by ' + this.songsAndArtists[i].artist  + ' at ' + this.songsAndArtists[i].audioLink);
-  //       }
-  //     }
-  //   }
-  // },
-
   addSongAndArtist: function (newSong, newArtist, linkToAudio) {
     this.songsAndArtists.push({
       song: newSong,
@@ -38,7 +21,6 @@ var playlist = {
       played: false,
       audioLink: linkToAudio
     });
-    // this.displaySongsAndArtists();
   },
   changeSongAndArtist: function (position,
     newSong,
@@ -46,19 +28,16 @@ var playlist = {
     audioLink) {
     this.songsAndArtists[position].song = newSong;
     this.songsAndArtists[position].artist = newArtist;
-    this.songsAndArtists[position].audioLink = audioLink;
-    // this.displaySongsAndArtists();
+    this.songsAndArtists[position].audioLink = audioLink 
   },
 
   deleteSongAndArtist: function (position) {
-    this.songsAndArtists.splice(position, 1);
-    //this.displaySongsAndArtists();
+    this.songsAndArtists.splice(position, 1);    
   },
 
   togglePlayed: function (position) {
     var song = this.songsAndArtists[position];
     song.played = !song.played;
-    // this.displaySongsAndArtists();
   },
   toggleAll: function () {
     let totalSongs = this.songsAndArtists.length;
@@ -81,7 +60,6 @@ var playlist = {
         this.songsAndArtists[i].played = true;
       }
     }
-    // this.displaySongsAndArtists();
   }
 };
 
@@ -153,11 +131,25 @@ var viewPlaylist = {
         playlistItemStatus = '[......] ' + playlist.songsAndArtists[i].song + ' by ' + playlist.songsAndArtists[i].artist;
       }
 
+      playlistLi.id = i;
       playlistLi.textContent = playlistItemStatus;
+      playlistLi.appendChild(this.createDeleteButton());
       songsAndArtistsOl.appendChild(playlistLi);
     }
+  },
+  createDeleteButton: function () {
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Remove';
+    deleteButton.className = 'deleteButton';
+    return deleteButton;
   }
 };
+
+var songAndArtistUl = document.querySelector('ol');
+
+songAndArtistUl.addEventListener('click', function (event) {
+  console.log(event.target.parentNode.id);
+});
 
 // List of songs and artists with links displayed:
 
@@ -178,27 +170,6 @@ var viewPlaylist = {
 
 //       playlistLi.textContent = playlistItemStatus;
 //       songsAndArtistsOl.appendChild(playlistLi);
-//     }
-//   }
-// };
-
-
-// some work on adding buttons to link up the url
-
-// var viewPlaylist = {
-//   displaySongsAndArtists: function () {
-//     var songsAndArtistsOl = document.querySelector('.viewPlaylist');
-//     songsAndArtistsOl.innerHTML = '';
-//     for (var i = 0; i < playlist.songsAndArtists.length; i++) {
-//       var playlistLi = document.createElement('li');
-//       var playlistButton = document.createElement('button');
-//       var playlistLink = document.createElement('a')
-//       playlistLi.textContent = playlist.songsAndArtists[i].song;
-//       playlistButton.textContent = playlist.songsAndArtists[i].song;
-//       playlistLink.textContent = playlist.songsAndArtists[i].audioLink;
-//       songsAndArtistsOl.appendChild(playlistLi);
-//       songsAndArtistsOl.appendChild(playlistButton);
-//       songsAndArtistsOl.appendChild(playlistLink);
 //     }
 //   }
 // };
